@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.root {
+    -fx-background-color: #0d1117;
+    -fx-font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+}
+
+.label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+}
+
+#top_bar {
+    -fx-background-color: linear-gradient(to right, #161b22, #1f2937);
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 0, 2);
+}
+
+#left_panel {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 1 0 0;
+}
+
+#right_panel {
+    -fx-background-color: #161b22;
+    -fx-border-color: #30363d;
+    -fx-border-width: 0 0 0 1;
+}
+
+#center_panel {
+    -fx-background-color: #0d1117;
+}
+
+.titre-section {
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-prompt-text-fill: #484f58;
+    -fx-padding: 7 10 7 10;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: #58a6ff;
+    -fx-background-color: #161b22;
+    -fx-effect: dropshadow(gaussian, rgba(88,166,255,0.3), 4, 0, 0, 0);
+}
+
+#connexion_btn {
+    -fx-background-color: #238636;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(35,134,54,0.3), 6, 0, 0, 2);
+}
+
+#connexion_btn:hover {
+    -fx-background-color: #2ea043;
+    -fx-effect: dropshadow(gaussian, rgba(46,160,67,0.5), 8, 0, 0, 2);
+}
+
+#connexion_btn:disabled {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #484f58;
+    -fx-effect: none;
+}
+
+#deconnexion_btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #da3633;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-text-fill: #f85149;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+#deconnexion_btn:hover {
+    -fx-background-color: rgba(218,54,51,0.15);
+}
+
+.list-view {
+    -fx-background-color: #21262d;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-control-inner-background: #21262d;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 5 10 5 10;
+    -fx-font-size: 14px;
+}
+
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #30363d;
+    -fx-text-fill: #ffffff;
+}
+
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+}
+
+.separator .line {
+    -fx-border-color: #30363d;
+    -fx-border-width: 1 0 0 0;
+}
+
+.grille-box {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 8;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 3);
+}
+
+.timer-box {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 8;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.stat-box {
+    -fx-background-color: #21262d;
+    -fx-background-radius: 6;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+}
+
+.stat-box .label {
+    -fx-text-fill: #ffffff;
+}
+
+.label-muted {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 13px;
+}
+
+#notif_label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f85149;
+}
+
+#connexion_etat {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+#ChanceTimer {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f5a623;
+}
+
+#pixelTimer {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a56db;
+}
+
+#nbPixelsLibresLabel {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3fb950;
+}
+
+#nbPixelsVerouillesLabel {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f85149;
+}
+
+#mesPixelsLabel {
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+#top_bar .label {
+    -fx-font-size: 42px;
+    -fx-text-fill: #58a6ff;
+}

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane minHeight="600.0" minWidth="750.0" prefHeight="720.0" prefWidth="900.0"
+            stylesheets="@pixelwar.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.Controller">
+   <children>
+
+      <!-- TOP BAR -->
+      <HBox fx:id="top_bar" alignment="CENTER" prefHeight="60.0"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+         <children>
+            <Label alignment="CENTER" text=". . . Pixel ">
+               <font><Font name="Colonna MT" size="36.0" /></font>
+               <textFill><Color red="0.88" green="0.88" blue="0.88" /></textFill>
+            </Label>
+            <Label text="WAR">
+               <font><Font name="Algerian" size="36.0" /></font>
+               <padding><Insets left="5.0" /></padding>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.0" startY="0.0">
+                     <stops>
+                        <Stop><color><Color red="1.0" green="0.6" blue="0.2" /></color></Stop>
+                        <Stop offset="1.0"><color><Color red="1.0" green="0.3" blue="0.0" /></color></Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </HBox>
+
+      <!-- LEFT PANEL -->
+      <VBox fx:id="left_panel" prefWidth="220.0"
+            AnchorPane.leftAnchor="0" AnchorPane.topAnchor="60" AnchorPane.bottomAnchor="0">
+         <padding><Insets bottom="12.0" left="14.0" right="14.0" top="14.0" /></padding>
+         <children>
+
+            <Label text="CONNEXION" styleClass="titre-section" prefWidth="192.0" textAlignment="CENTER">
+               <font><Font name="Algerian" size="20.0" /></font>
+               <cursor><Cursor fx:constant="CLOSED_HAND" /></cursor>
+               <VBox.margin><Insets bottom="12.0" /></VBox.margin>
+            </Label>
+
+            <Label text="Pseudo :" textFill="WHITE">
+               <font><Font size="17.0" /></font>
+               <VBox.margin><Insets bottom="3.0" /></VBox.margin>
+            </Label>
+            <TextField fx:id="pseudoFiled" prefWidth="192.0">
+               <font><Font size="17.0" /></font>
+               <VBox.margin><Insets bottom="10.0" /></VBox.margin>
+            </TextField>
+
+            <Label text="Adresse serveur :" textFill="WHITE">
+               <font><Font size="17.0" /></font>
+               <VBox.margin><Insets bottom="3.0" /></VBox.margin>
+            </Label>
+            <TextField fx:id="hostField" alignment="CENTER" prefWidth="192.0">
+               <font><Font size="17.0" /></font>
+               <VBox.margin><Insets bottom="10.0" /></VBox.margin>
+            </TextField>
+
+            <Label text="Port :" textFill="WHITE">
+               <font><Font size="17.0" /></font>
+               <VBox.margin><Insets bottom="3.0" /></VBox.margin>
+            </Label>
+            <TextField fx:id="portField" prefWidth="192.0">
+               <font><Font size="17.0" /></font>
+               <VBox.margin><Insets bottom="12.0" /></VBox.margin>
+            </TextField>
+
+            <Button fx:id="connexion_btn" mnemonicParsing="false" onAction="#onConnexion"
+                    prefHeight="34.0" prefWidth="192.0" text="CONNEXION">
+               <font><Font name="Algerian" size="17.0" /></font>
+               <VBox.margin><Insets bottom="12.0" /></VBox.margin>
+            </Button>
+
+            <Separator prefWidth="192.0"><VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin></Separator>
+
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+               <children>
+                  <Label text="ETAT :" textFill="WHITE">
+                     <font><Font name="Algerian" size="17.0" /></font>
+                  </Label>
+                  <Label fx:id="connexion_etat" text="DECONNECTE" textFill="#f85149">
+                     <font><Font size="17.0" /></font>
+                  </Label>
+               </children>
+               <VBox.margin><Insets bottom="10.0" /></VBox.margin>
+            </HBox>
+
+            <Button fx:id="deconnexion_btn" mnemonicParsing="false" onAction="#onDeconnexion"
+                    prefHeight="32.0" prefWidth="192.0" text="DECONNEXION">
+               <font><Font name="Algerian" size="17.0" /></font>
+            </Button>
+
+            <VBox VBox.vgrow="ALWAYS" />
+
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Separator prefWidth="192.0"><VBox.margin><Insets bottom="10.0" /></VBox.margin></Separator>
+                  <Label text="🎮 Pixel WAR" styleClass="titre-section">
+                     <font><Font name="Algerian" size="17.0" /></font>
+                     <VBox.margin><Insets bottom="4.0" /></VBox.margin>
+                  </Label>
+                  <Label text="── CONNEXION ──" textFill="#8b949e">
+                     <font><Font size="13.0" /></font>
+                  </Label>
+                  <TextFlow fx:id="connexion_steps" prefWidth="192.0" textAlignment="CENTER" />
+                  <Label text="── COMMENT JOUER ? ──" textFill="#8b949e">
+                     <font><Font size="13.0" /></font>
+                     <VBox.margin><Insets top="6.0" /></VBox.margin>
+                  </Label>
+                  <TextFlow fx:id="jouer_steps" prefWidth="192.0" textAlignment="CENTER" />
+               </children>
+            </VBox>
+
+         </children>
+      </VBox>
+
+      <!-- RIGHT PANEL -->
+      <VBox fx:id="right_panel" prefWidth="190.0"
+            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="60" AnchorPane.bottomAnchor="0">
+         <padding><Insets bottom="12.0" left="12.0" right="12.0" top="14.0" /></padding>
+         <children>
+
+            <Label text="JOUEURS" styleClass="titre-section">
+               <font><Font name="Algerian" size="18.0" /></font>
+               <VBox.margin><Insets bottom="8.0" /></VBox.margin>
+            </Label>
+            <ListView fx:id="listViewJoueurs" prefHeight="150.0" prefWidth="166.0">
+               <VBox.margin><Insets bottom="10.0" /></VBox.margin>
+            </ListView>
+
+            <VBox VBox.vgrow="ALWAYS" />
+
+            <Separator prefWidth="166.0"><VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin></Separator>
+
+            <Label text="INFOS UTILES" styleClass="titre-section">
+               <font><Font name="Algerian" size="18.0" /></font>
+               <VBox.margin><Insets bottom="8.0" /></VBox.margin>
+            </Label>
+
+            <!-- Pixels libres -->
+            <VBox alignment="CENTER" prefWidth="166.0" styleClass="stat-box">
+               <padding><Insets bottom="6.0" top="6.0" /></padding>
+               <VBox.margin><Insets bottom="5.0" /></VBox.margin>
+               <children>
+                  <Label fx:id="nbPixelsLibresLabel" text="306" textFill="#3fb950">
+                     <font><Font name="Algerian" size="44.0" /></font>
+                  </Label>
+                  <Label text="Pixels libres" textFill="#8b949e">
+                     <font><Font size="13.0" /></font>
+                  </Label>
+               </children>
+            </VBox>
+
+            <!-- Pixels verrouillés -->
+            <VBox alignment="CENTER" prefWidth="166.0" styleClass="stat-box">
+               <padding><Insets bottom="6.0" top="6.0" /></padding>
+               <VBox.margin><Insets bottom="5.0" /></VBox.margin>
+               <children>
+                  <Label fx:id="nbPixelsVerouillesLabel" text="0" textFill="#f85149">
+                     <font><Font name="Algerian" size="44.0" /></font>
+                  </Label>
+                  <Label text="Pixels verrouillés" textFill="#8b949e">
+                     <font><Font size="13.0" /></font>
+                  </Label>
+               </children>
+            </VBox>
+
+            <!-- Mes pixels -->
+            <VBox alignment="CENTER" prefWidth="166.0" styleClass="stat-box">
+               <padding><Insets bottom="6.0" top="6.0" /></padding>
+               <VBox.margin><Insets bottom="10.0" /></VBox.margin>
+               <children>
+                  <Label fx:id="mesPixelsLabel" text="0" textFill="#ffffff">
+                     <font><Font name="Algerian" size="44.0" /></font>
+                  </Label>
+                  <Label text="Mes Pixels" textFill="#8b949e">
+                     <font><Font size="13.0" /></font>
+                  </Label>
+               </children>
+            </VBox>
+
+            <Separator prefWidth="166.0"><VBox.margin><Insets bottom="10.0" top="2.0" /></VBox.margin></Separator>
+
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Label text="Couleur choisie" textFill="#8b949e">
+                     <font><Font size="13.0" /></font>
+                  </Label>
+                  <Rectangle fx:id="selectedColor" arcHeight="8.0" arcWidth="8.0" fill="RED"
+                             height="34.0" stroke="#30363d" strokeType="INSIDE" width="120.0" />
+               </children>
+            </VBox>
+
+         </children>
+      </VBox>
+
+      <!-- CENTER PANEL -->
+      <VBox fx:id="center_panel" spacing="8.0"
+            AnchorPane.leftAnchor="220" AnchorPane.rightAnchor="190"
+            AnchorPane.topAnchor="60" AnchorPane.bottomAnchor="0">
+         <padding><Insets bottom="8.0" left="8.0" right="8.0" top="8.0" /></padding>
+         <children>
+
+            <!-- Timers — police réduite pour tenir dans la largeur -->
+            <HBox alignment="CENTER" spacing="0.0" styleClass="timer-box">
+               <padding><Insets bottom="8.0" left="8.0" right="8.0" top="8.0" /></padding>
+               <children>
+                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="ChanceTimer" text="00:30" textFill="#d29922">
+                           <font><Font name="Algerian" size="48.0" /></font>
+                        </Label>
+                        <Label text="Avant prochain pixel" textFill="#8b949e">
+                           <font><Font size="13.0" /></font>
+                        </Label>
+                        <Separator prefWidth="120.0" style="-fx-background-color: #d29922; -fx-opacity: 0.8;">
+                           <VBox.margin><Insets top="4.0" /></VBox.margin>
+                        </Separator>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" style="-fx-background-color: #30363d;" />
+                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="pixelTimer" text="01:00" textFill="#58a6ff">
+                           <font><Font name="Algerian" size="48.0" /></font>
+                        </Label>
+                        <Label text="Pixel dispo dans" textFill="#8b949e">
+                           <font><Font size="13.0" /></font>
+                        </Label>
+                        <Separator prefWidth="120.0" style="-fx-background-color: #58a6ff; -fx-opacity: 0.8;">
+                           <VBox.margin><Insets top="4.0" /></VBox.margin>
+                        </Separator>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <!-- Grille -->
+            <VBox fx:id="grilleContainer" alignment="CENTER" styleClass="grille-box" VBox.vgrow="ALWAYS" maxWidth="Infinity">
+               <children>
+                  <Canvas fx:id="warGrid" height="340.0" width="360.0" />
+               </children>
+               <padding><Insets bottom="8.0" left="8.0" right="8.0" top="8.0" /></padding>
+            </VBox>
+
+            <!-- Notif -->
+            <Label fx:id="notif_label" text="" textFill="#f85149" alignment="CENTER"
+                   maxWidth="Infinity"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px;" />
+
+            <!-- Couleurs -->
+            <VBox styleClass="timer-box">
+               <padding><Insets bottom="6.0" left="8.0" right="8.0" top="6.0" /></padding>
+               <children>
+                  <Label text="COULEURS" styleClass="titre-section">
+                     <font><Font name="Algerian" size="15.0" /></font>
+                     <VBox.margin><Insets bottom="5.0" /></VBox.margin>
+                  </Label>
+                  <GridPane fx:id="colorGrid" alignment="CENTER" hgap="3.0" vgap="3.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="55.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="55.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="25.0" minHeight="0.0"  prefHeight="22.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="25.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+
+         </children>
+      </VBox>
+
+   </children>
+</AnchorPane>
